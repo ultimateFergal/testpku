@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  Full stack developer challenge
+  Full stack developer challenge - LUIS FERNANDO GALARCIO MARIN
 </mat-toolbar>
 
 <main>
@@ -13,16 +13,46 @@
         </mat-error>
       </mat-form-field>
       <div class="example-button-row">
-        <button mat-raised-button color="accent" style="display:inline; width:40%;">
+        <button mat-raised-button color="accent" type="button" (click)="clear($event)" style="display:inline; width:40%;">
           Clear
         </button>
-        <button mat-raised-button color="primary" style="display:inline; width:40%;">
-          Save
+        <button 
+          mat-raised-button 
+          color="primary" 
+          style="display:inline; width:40%;" 
+          type="submit"
+          [disabled]="!form.valid">
+          Send
         </button>
       </div>
     </form >
   </mat-card>
 
-  <pre>{{ result | json}}</pre>
+  <mat-card *ngIf="result && result !== ''" class="mat-card-res">
+    <mat-grid-list  cols="4" rowHeight="50px">
+      <mat-grid-tile
+          *ngFor="let tile of tiles1"
+          [colspan]="tile.cols"
+          [rowspan]="tile.rows"
+          [style.background]="tile.color">
+        {{tile.text}}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+
+
+  <mat-card *ngIf="result && result !== ''" class="mat-card-res">
+    <mat-grid-list  cols="6" rowHeight="50px">
+      <mat-grid-tile
+          *ngFor="let tile of tiles2"
+          [colspan]="tile.cols"
+          [rowspan]="tile.rows"
+          [style.background]="tile.color">
+        {{tile.text}}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+
+  <!-- <pre *ngIf="result && result !== ''">{{ result | json}}</pre> -->
 
 </main>

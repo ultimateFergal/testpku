@@ -8,9 +8,16 @@ main {
     text-align: center;
 }
 
-mat-card, app-photos {
+mat-card {
     margin: auto;
     width: 35%;
+    display: block;
+    margin-top: 2rem;
+}
+
+.mat-card-res {
+    margin: auto;
+    width: 85%;
     display: block;
     margin-top: 2rem;
 }
